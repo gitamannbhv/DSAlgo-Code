@@ -10,3 +10,18 @@ if __name__ == '__main__':
     integer_list = map(int, raw_input().split())
     t=tuple(integer_list)
     print(hash(t))
+    
+    
+#however tried python 3 code is as, implemention of encoder can solve the issue
+
+import hashlib
+
+if __name__ == '__main__':
+    n = int(input())
+    integer_list = str(map(int, input().split()))
+    encded=integer_list.encode('utf-8')
+    t=tuple(integer_list)
+    hash_obj=hashlib.sha256(encded)
+    print(hash_obj)
+    print(hash(t))
+
