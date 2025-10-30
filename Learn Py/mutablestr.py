@@ -20,3 +20,15 @@ TypeError: 'str' object does not support item assignment
 How would you approach this?
 
 One solution is to convert the string to a list and then change the value.'''
+
+def mutate_string(string, position, character):
+    lst=list(string)
+    lst[position]=character
+    strng=''.join(lst)
+    return(strng)
+
+if __name__ == '__main__':
+    s = input()
+    i, c = input().split()
+    s_new = mutate_string(s, int(i), c)
+    print(s_new)
