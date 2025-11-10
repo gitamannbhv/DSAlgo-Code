@@ -51,3 +51,31 @@ Complete the rangoli function in the editor below.
 rangoli has the following parameters:
 
 int size: the size of the rangoli'''
+
+import string
+
+def print_rangoli(size):
+
+    alpha = string.ascii_lowercase
+    letters = alpha[:size]
+    
+    width = (size * 2 - 1) + (size * 2 - 2)
+
+    lines = []
+
+    for i in range(size):
+        s = letters[size-1-i:]
+        row_letters = s[::-1] + s[1:]
+
+        line = '-'.join(row_letters)
+        lines.append(line.center(width, '-'))
+
+    bottom_half = lines[:-1][::-1]
+    
+    full_rangoli = print("\n".join(lines + bottom_half))
+    return(full_rangoli)
+
+
+if __name__ == '__main__':
+    n = int(input())
+    print_rangoli(n)
